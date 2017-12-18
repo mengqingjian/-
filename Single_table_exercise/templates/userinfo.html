@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <style>
+       .pagination a{
+            display: inline-block;
+            padding: 2px 8px;
+            margin: 0 5px;
+            border: 1px solid cadetblue;
+{#           border-radius: 50%;#}
+
+        }
+        .pagination li.active{
+            background-color: #2b669a;
+            color: white;
+
+        }
+        .pagination{
+            margin-left:50%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+<table class="table table-condensed table-bordered" >
+    <a href="/user_add/"><div class="btn btn-primary">添加</div></a>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>姓名</th>
+          <th>年龄</th>
+          <th>邮箱</th>
+          <th>电话号码</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+       {% for foo in obj %}
+        <tr>
+                <td>{{foo.id }}</td>
+                <td>{{foo.username }}</td>
+                <td>{{foo.age }}</td>
+                <td>{{foo.email }}</td>
+                <td>{{foo.phone }}</td>
+                <td><a href="/user_edit/{{ foo.id }}" >编辑</a></td>
+
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+</div>
+
+
+
+
+<ul class="pagination">
+         {{ page_html|safe }}
+     </ul>
+</body>
+
+</html>
